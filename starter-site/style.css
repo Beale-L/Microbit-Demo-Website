@@ -1,0 +1,85 @@
+/* =====================================================
+   🎨 STEP 1: PICK YOUR COLORS!
+   Change the value after each colon, then save and refresh.
+   Try color names:  pink, gold, teal, tomato, lavender
+   Or color codes:   #ff6600   rgb(120, 50, 200)
+   ===================================================== */
+:root {
+  --page-background: #e8f4ff;
+  --card-background: white;
+  --title-color: #2b2d8c;
+  --text-color: #333333;
+  --button-color: #ff6b6b;
+  --button-text-color: white;
+}
+
+
+/* =====================================================
+   🔤 STEP 2: CHANGE THE LOOK OF YOUR TEXT
+   ===================================================== */
+body {
+  background-color: var(--page-background);
+  color: var(--text-color);
+  font-family: Verdana, sans-serif;   /* Try: "Comic Sans MS", Georgia, "Courier New" */
+  text-align: center;                 /* Try: left */
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: var(--title-color);
+  font-size: 48px;                    /* Make it bigger or smaller! */
+}
+
+.subtitle {
+  font-style: italic;
+}
+
+
+/* =====================================================
+   📦 STEP 3: THE BOXES (CARDS)
+   ===================================================== */
+.card {
+  background-color: var(--card-background);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 16px;                /* 0 = sharp corners, 30px = very round */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   🔘 STEP 4: BUTTONS
+   ===================================================== */
+.fun-button {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  font-size: 18px;
+  padding: 12px 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 999px;               /* Try: 0 for square buttons */
+  cursor: pointer;
+}
+
+/* What happens when your mouse goes over a button */
+.fun-button:hover {
+  transform: scale(1.1);              /* Try: rotate(10deg) */
+}
+
+/* Extra button colors. Make your own by copying one and changing the name and color! */
+.green  { background-color: mediumseagreen; }
+.purple { background-color: mediumpurple; }
+.orange { background-color: darkorange; }
+
+
+/* =====================================================
+   🖼️ STEP 5: PICTURES
+   ===================================================== */
+img {
+  width: 250px;                       /* Try: 100px or 400px */
+  margin: 8px;
+  border-radius: 12px;                /* Try: 50% for a circle! */
+  border: 4px solid var(--title-color);
+}

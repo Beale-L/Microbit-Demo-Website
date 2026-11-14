@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Challenges</title>
+  <style>
+    body { font-family: Verdana, sans-serif; max-width: 760px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #222; background: #fff; }
+    h1 { color: #2b2d8c; }
+    h2 { margin-top: 32px; border-bottom: 3px solid #ffd23f; padding-bottom: 4px; }
+    code { background: #f0f1f8; padding: 2px 6px; border-radius: 4px; font-size: 0.95em; }
+    pre { background: #1e1f2e; color: #f1f1f7; padding: 12px; border-radius: 8px; overflow-x: auto; }
+    li { margin-bottom: 10px; }
+    .tip { background: #e8f4ff; border-left: 5px solid #2b2d8c; padding: 10px 14px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1> Website Challenges</h1>
+  <p class="tip"><strong>How it works:</strong> HTML is <em>what</em> is on the page (<code>index.html</code>).
+    CSS is <em>how it looks</em> (<code>style.css</code>). After every change, <strong>save</strong> the file
+    and <strong>refresh</strong> the browser. If you're using the online playground, the page updates on its own.</p>
+
+  <h2>Level 1: Make it Yours</h2>
+  <ol>
+    <li>Change <code>Your Name Here</code> to your name.</li>
+    <li>Rewrite the "About Me" sentence about yourself.</li>
+    <li>In <code>style.css</code>, change <code>--page-background</code> to your favorite color.</li>
+    <li>Change <code>--button-color</code> and <code>--title-color</code> too.</li>
+  </ol>
+
+  <h2>Level 2: Add more stuff</h2>
+  <ol>
+    <li>Copy a <code>&lt;button&gt;</code> line and paste it below to make a third button. Change what it says.</li>
+    <li>Make your new button purple by changing its class to <code>fun-button purple</code>.</li>
+    <li>Change the message that pops up when you click it (the words inside <code>alert('...')</code>).</li>
+    <li>Add a new picture. Find a picture online, right-click it, choose <em>Copy Image Address</em>, and paste it into a new <code>&lt;img src="..."&gt;</code>.</li>
+  </ol>
+
+  <h2>Level 3: Styling</h2>
+  <ol>
+    <li>Make your pictures into circles: set <code>border-radius</code> in the <code>img</code> section to <code>50%</code>.</li>
+    <li>Make buttons spin when your mouse goes over them: change <code>scale(1.1)</code> to <code>rotate(10deg)</code>.</li>
+    <li>Create your own button color. Copy this into the bottom of <code>style.css</code>:
+      <pre>.rainbow { background-color: hotpink; }</pre>
+      Then use it in HTML: <code>class="fun-button rainbow"</code></li>
+    <li>Add a whole new card! Copy everything from <code>&lt;div class="card"&gt;</code> to its matching <code>&lt;/div&gt;</code> and give it a new title, like "My Favorite Foods."</li>
+  </ol>
+
+  <h2> Challenge level</h2>
+  <ol>
+    <li>Turn a button into a link to your favorite website:
+      <pre>&lt;a class="fun-button" href="https://www.nasa.gov"&gt;Go to NASA&lt;/a&gt;</pre></li>
+    <li>Give the page a gradient background. Replace the <code>background-color</code> line in <code>body</code> with:
+      <pre>background: linear-gradient(pink, lightblue);</pre></li>
+    <li>Make up your own challenge and show a friend!</li>
+  </ol>
+
+  <h2>Quick tips</h2>
+  <ul>
+    <li>Every <code>&lt;tag&gt;</code> needs a closing <code>&lt;/tag&gt;</code> (except <code>&lt;img&gt;</code>).</li>
+    <li>Every CSS line ends with a semicolon <code>;</code></li>
+    <li>Every <code>{</code> needs a matching <code>}</code></li>
+    <li>Quotes come in pairs: <code>"like this"</code></li>
+    <li>Still stuck? Undo with <strong>Ctrl+Z</strong> (Windows) or <strong>Cmd+Z</strong> (Mac).</li>
+  </ul>
+</body>
+</html>

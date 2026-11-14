@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Playground</title>
+  <style>
+    :root {
+      --bg: #f4f5fb;
+      --panel: #ffffff;
+      --border: #d7d9e6;
+      --text: #1d1f33;
+      --muted: #5c6080;
+      --accent: #4b4fd6;
+      --accent-text: #ffffff;
+      --editor-bg: #1e1f2e;
+      --editor-text: #f1f1f7;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14151f;
+        --panel: #1d1f2d;
+        --border: #34374d;
+        --text: #eceef8;
+        --muted: #a3a7c4;
+        --accent: #8a8dff;
+        --accent-text: #14151f;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 { font-size: 20px; margin: 0 auto 0 0; }
+    button, .upload {
+      font: inherit;
+      font-size: 15px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+    }
+    button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+    button:hover, .upload:hover { filter: brightness(0.95); }
+    .upload input { display: none; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px 16px 16px;
+      min-height: 0;
+    }
+    .editors { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 0; }
+    .pane {
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .pane-title {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    textarea {
+      flex: 1;
+      width: 100%;
+      resize: none;
+      border: 0;
+      padding: 12px;
+      background: var(--editor-bg);
+      color: var(--editor-text);
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 15px;
+      line-height: 1.5;
+      tab-size: 2;
+      outline: none;
+    }
+    iframe { flex: 1; width: 100%; border: 0; background: white; }
+    @media (max-width: 800px) {
+      main { grid-template-columns: 1fr; }
+      .editors { grid-template-rows: 320px 320px; }
+      .preview { min-height: 480px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Website Playground</h1>
+    <label class="upload" title="Add a picture from your computer">
+      Add my own picture
+      <input type="file" id="upload" accept="image/*">
+    </label>
+    <button id="reset" title="Go back to the starter website">↩Start over</button>
+    <button id="download" class="primary" title="Save your website as a file">Download my website</button>
+  </header>
+
+  <main>
+    <div class="editors">
+      <section class="pane">
+        <div class="pane-title">HTML: what's on the page (index.html)</div>
+        <textarea id="html" spellcheck="false"></textarea>
+      </section>
+      <section class="pane">
+        <div class="pane-title">CSS: how it looks (style.css)</div>
+        <textarea id="css" spellcheck="false"></textarea>
+      </section>
+    </div>
+    <section class="pane preview">
+      <div class="pane-title">👀 Your website (updates as you type)</div>
+      <iframe id="preview" title="Website preview"></iframe>
+    </section>
+  </main>
+
+<!-- Same as other starter guide-->
+<script type="text/plain" id="starter-html"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Awesome Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Change the words between the tags to make this page yours! -->
+  <h1>Welcome to My Website!</h1>
+  <p class="subtitle">Built by: Your Name Here</p>
+
+  <div class="card">
+    <h2>About Me</h2>
+    <p>Hi! I like science, music, and video games. This is my very first website.</p>
+  </div>
+
+  <div class="card">
+    <h2>My Buttons</h2>
+
+    <!-- COPY THIS LINE to make a new button! Change the words to change what it says. -->
+    <button class="fun-button" onclick="alert('You clicked me!')">Click me!</button>
+
+    <!-- Add a second class name to change the color: green, purple, or orange -->
+    <button class="fun-button green" onclick="alert('Hello there!')">Say hello</button>
+  </div>
+
+  <div class="card">
+    <h2>My Pictures</h2>
+
+    <!-- COPY THIS LINE to add a picture from the internet. Put the picture link inside the quotes. -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="A cute dog">
+
+    <!-- Click "Add my own picture" at the top to add a picture from your computer! -->
+  </div>
+
+</body>
+</html></script>
+<script type="text/plain" id="starter-css">/* =====================================================
+   STEP 1: PICK YOUR COLORS!
+   Change the value after each colon and watch the page change.
+   Try color names:  pink, gold, teal, tomato, lavender
+   Or color codes:   #ff6600   rgb(120, 50, 200)
+   ===================================================== */
+:root {
+  --page-background: #e8f4ff;
+  --card-background: white;
+  --title-color: #2b2d8c;
+  --text-color: #333333;
+  --button-color: #ff6b6b;
+  --button-text-color: white;
+}
+
+
+/* =====================================================
+   STEP 2: CHANGE THE LOOK OF YOUR TEXT
+   ===================================================== */
+body {
+  background-color: var(--page-background);
+  color: var(--text-color);
+  font-family: Verdana, sans-serif;   /* Try: "Comic Sans MS", Georgia, "Courier New" */
+  text-align: center;                 /* Try: left */
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: var(--title-color);
+  font-size: 48px;                    /* Make it bigger or smaller! */
+}
+
+.subtitle {
+  font-style: italic;
+}
+
+
+/* =====================================================
+   STEP 3: THE BOXES (CARDS)
+   ===================================================== */
+.card {
+  background-color: var(--card-background);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 16px;                /* 0 = sharp corners, 30px = very round */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   STEP 4: BUTTONS
+   ===================================================== */
+.fun-button {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  font-size: 18px;
+  padding: 12px 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 999px;               /* Try: 0 for square buttons */
+  cursor: pointer;
+}
+
+/* What happens when your mouse goes over a button */
+.fun-button:hover {
+  transform: scale(1.1);              /* Try: rotate(10deg) */
+}
+
+/* Extra button colors. Make your own by copying one and changing the name and color! */
+.green  { background-color: mediumseagreen; }
+.purple { background-color: mediumpurple; }
+.orange { background-color: darkorange; }
+
+
+/* =====================================================
+   STEP 5: PICTURES
+   ===================================================== */
+img {
+  width: 250px;                       /* Try: 100px or 400px */
+  margin: 8px;
+  border-radius: 12px;                /* Try: 50% for a circle! */
+  border: 4px solid var(--title-color);
+}
+</script>
+
+<script>
+  const htmlBox = document.getElementById('html');
+  const cssBox = document.getElementById('css');
+  const preview = document.getElementById('preview');
+  const STARTER_HTML = document.getElementById('starter-html').textContent;
+  const STARTER_CSS = document.getElementById('starter-css').textContent;
+  const SAVE_KEY = 'website-playground-v1';
+
+  // Swap the <link> to style.css for the CSS box contents, so the page works as one file.
+  function buildPage() {
+    const style = '<style>\n' + cssBox.value + '\n</style>';
+    const html = htmlBox.value;
+    const linkTag = /<link[^>]*href=["']style\.css["'][^>]*>/i;
+    if (linkTag.test(html)) return html.replace(linkTag, () => style);
+    if (/<\/head>/i.test(html)) return html.replace(/<\/head>/i, () => style + '\n</head>');
+    return style + '\n' + html;
+  }
+
+  let timer;
+  function update() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      preview.srcdoc = buildPage();
+      try { localStorage.setItem(SAVE_KEY, JSON.stringify({ html: htmlBox.value, css: cssBox.value })); } catch (e) {}
+    }, 300);
+  }
+
+  function load() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(SAVE_KEY)); } catch (e) {}
+    htmlBox.value = saved?.html ?? STARTER_HTML;
+    cssBox.value = saved?.css ?? STARTER_CSS;
+    preview.srcdoc = buildPage();
+  }
+
+  // Tab key types spaces instead of jumping out of the box.
+  function handleTab(e) {
+    if (e.key !== 'Tab') return;
+    e.preventDefault();
+    const box = e.target;
+    box.setRangeText('  ', box.selectionStart, box.selectionEnd, 'end');
+    update();
+  }
+
+  [htmlBox, cssBox].forEach(box => {
+    box.addEventListener('input', update);
+    box.addEventListener('keydown', handleTab);
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    if (!confirm('Start over? This erases your changes and brings back the starter website.')) return;
+    htmlBox.value = STARTER_HTML;
+    cssBox.value = STARTER_CSS;
+    update();
+  });
+
+  // Uploaded pictures are stored inside the code, so they still show up in the downloaded file.
+  document.getElementById('upload').addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const tag = '\n    <img src="' + reader.result + '" alt="' + file.name.replace(/"/g, '') + '">\n';
+      const html = htmlBox.value;
+      const spot = html.lastIndexOf('</div>');
+      htmlBox.value = spot === -1 ? html + tag : html.slice(0, spot) + tag.trimEnd() + '\n  ' + html.slice(spot);
+      update();
+      alert('Your picture was added to the bottom of the "My Pictures" box!');
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  });
+
+  document.getElementById('download').addEventListener('click', () => {
+    const blob = new Blob([buildPage()], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'my-website.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  load();
+</script>
+</body>
+</html>
